@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/answerLIV"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="64dp"
@@ -16,9 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/smile"/>
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/incorrect" />
 
     <TextView
         android:id="@+id/primeTV"

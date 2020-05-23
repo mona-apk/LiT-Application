@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.sqrt
 import kotlin.random.Random
@@ -23,16 +24,26 @@ class MainActivity : AppCompatActivity() {
         restart()
 
         isPrimeBtn.setOnClickListener {
+            answerLIV.visibility = View.VISIBLE
             if (isPrimeNumber(displayNumber)) {
+                answerLIV.setAnimation(R.raw.correct)
                 ansNumber++
+            } else {
+                answerLIV.setAnimation(R.raw.incorrect)
             }
+            answerLIV.playAnimation()
             next()
         }
 
         notPrimeBtn.setOnClickListener {
+            answerLIV.visibility = View.VISIBLE
             if (!isPrimeNumber(displayNumber)) {
+                answerLIV.setAnimation(R.raw.correct)
                 ansNumber++
+            } else {
+                answerLIV.setAnimation(R.raw.incorrect)
             }
+            answerLIV.playAnimation()
             next()
         }
 
@@ -48,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun restart() {
+        answerLIV.visibility = View.GONE
         problemsNumber = maxProblems
         viewChange()
         ansNumber = 0
@@ -58,7 +70,7 @@ class MainActivity : AppCompatActivity() {
     private fun next() {
         problemsNumber--
         viewChange()
-        if (problemsNumber <= -1) {
+        if (problemsNumber <= 0) {
             resultLayout.visibility = View.VISIBLE
             ansTV.text = "${ansNumber}問正解!"
         }
