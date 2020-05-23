@@ -38,14 +38,14 @@ class MainActivity : AppCompatActivity() {
         restartButton.setOnClickListener {
             restart()
         }
+
+        resultLayout.setOnTouchListener { _, _ -> true }
     }
 
     private fun restart() {
         problemsNumber = maxProblems
         viewChange()
         ansNumber = 0
-        isPrimeBtn.isClickable = true
-        notPrimeBtn.isClickable = true
         resultLayout.visibility = View.GONE
     }
 
@@ -53,8 +53,6 @@ class MainActivity : AppCompatActivity() {
         problemsNumber--
         viewChange()
         if (problemsNumber <= -1) {
-            isPrimeBtn.isClickable = false
-            notPrimeBtn.isClickable = false
             resultLayout.visibility = View.VISIBLE
             ansTV.text = ansNumber.toString()
         }
