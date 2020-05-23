@@ -1,5 +1,6 @@
 package com.kamiapk.primequize
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             restart()
         }
 
+        endButton.setOnClickListener {
+            endGame()
+        }
+
         resultLayout.setOnTouchListener { _, _ -> true }
     }
 
@@ -49,15 +54,17 @@ class MainActivity : AppCompatActivity() {
         resultLayout.visibility = View.GONE
     }
 
+    @SuppressLint("SetTextI18n")
     private fun next() {
         problemsNumber--
         viewChange()
         if (problemsNumber <= -1) {
             resultLayout.visibility = View.VISIBLE
-            ansTV.text = ansNumber.toString()
+            ansTV.text = "${ansNumber}問正解!"
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun viewChange() {
         textView5.text = "残り: ${problemsNumber}問"
         displayNumber = Random.nextInt(500)
@@ -72,5 +79,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    private fun endGame() {
+        finish()
     }
 }
