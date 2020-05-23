@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/realm" />
             <option value="$PROJECT_DIR$/recyclerview" />
             <option value="$PROJECT_DIR$/sound" />
+            <option value="$PROJECT_DIR$/webapi" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
