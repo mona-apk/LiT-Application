@@ -42,6 +42,7 @@ class MainActivity : ScopedAppActivity() {
         setContentView(R.layout.activity_main)
 
         button.setOnClickListener {
+            //TODO: テキストの長さに応じてFadeの時間を変化させる
             if (!isRunning) {
                 isRunning = true
                 liner_text_layouts.textScroll("あああああああああああああああああああああああああああああ")
@@ -53,7 +54,8 @@ class MainActivity : ScopedAppActivity() {
     private fun fadeButton(view: View) {
         launch {
             fadeoutAnimation(view)
-            delay(700)
+            //TODO:
+            delay(1400)
             fadeInAnimation(view)
             isRunning = false
         }
